@@ -10,7 +10,7 @@ class GSCBucketConnectorClass():
 
     def __init__(self):
         try:
-            Path_to_credential = "D:/deeplearning learn/OrionEdgeSocialDistancingAPI/social_distance/config/las-prod-1-e312994d63d5.json"
+            Path_to_credential = "path_to_the_cloud_service_account_credential"
             self.storage_client = storage.Client.from_service_account_json(Path_to_credential)  
         except:
             print(f"Failed to Initiate the GSCBucketConnectorClass ")
@@ -27,10 +27,9 @@ class GSCBucketConnectorClass():
             print(f"Failed to download the from bucket ")
 
 bucket_name = "image_input"
-destination_file_name = "D:/deeplearning learn/Social distancing/face-mask-detector/dataset_classifer_syngene/croppedface_14-12-2020/" 
-#source_blob_Folder_name = "Syngene_S1_GF_entrance/MD/2020-12-14/"
-#source_blob_Folder_name = "Syngene_S1_GF_Lift_Lobby/MD/2020-12-08/"
-source_blob_Folder_name = "Syngene_S1_FF_Lift_Lobby/MD/2020-12-08/"
+destination_file_name = "path_to/dataset_classifer/croppedface_14-12-2020/" 
+
+source_blob_Folder_name = "path_to_GCS_source_bucket/2020-12-08/"
 # Create this folder locally
 if not os.path.exists(destination_file_name+source_blob_Folder_name):
     os.makedirs(destination_file_name+source_blob_Folder_name)
